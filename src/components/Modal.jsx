@@ -1,7 +1,7 @@
-import { useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle } from "react";
 import { createPortal } from "react-dom";
 
-export default function Modal() {
+const Modal = forwardRef(function Modal(props, ref) {
   const dialog = useRef();
 
   useImperativeHandle(ref, () => {
@@ -20,4 +20,6 @@ export default function Modal() {
     </dialog>,
     document.getElementById("modal-root")
   );
-}
+});
+
+export default Modal;
